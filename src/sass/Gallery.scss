@@ -1,0 +1,110 @@
+.gallery{
+    width: 100%;
+    @include flex(column, flex-start, center);
+    @media screen and (min-width: 1024px) and (orientation: landscape) {
+        @include flex(row, flex-start, flex-start);
+    }
+    gap: 6.4rem 0;
+}
+.slider-wrapper{
+    position: relative;
+    @media screen and (min-width: 1024px) and (orientation: landscape) {
+        flex: 2 1 84rem;
+    }
+}
+.slider{
+    width: 100%;
+    overflow: hidden;
+}
+.slides{
+    width: 300%;
+    transition: 700ms;
+    @include flex(row, flex-start, center);
+    @media screen and (min-width: 760px) and (orientation: portrait){
+        max-height: 53vw;
+    }
+    @media screen and (min-width: 1024px) and (orientation: landscape){
+        max-height: 67vh;
+    }
+
+}
+.slide{
+    width: 100%;
+    & img{
+        width: 100%;
+        display: block;
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+.arrows{
+    width: max-content;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+    @media screen and (min-width: 1300px) and (orientation: landscape) {
+        left: 100%;
+    }
+}
+.arrows__prev,
+.arrows__next{
+    @include arrow-style;
+}
+
+
+.gallery__content{
+    width: 100%;
+    @include flex(column, center, center);
+    @media screen and (min-width: 1024px) and (orientation: landscape) {
+        flex: 1 2 60rem;
+        height: 100%;
+    }
+}
+.gallery__content-wrapper{
+    width: $w-text-md-sm;
+    @include flex(column, flex-start, flex-start);
+    gap: 2.4rem 0;
+    @media screen and (min-width: 1024px) and (orientation: landscape) {
+        width: 70%;
+    }
+    @media screen and (max-width: 450px) {
+        gap: 3.2rem 0;
+    }
+}
+.gallery__content-text-block{
+    @include flex(column, flex-start, flex-start);
+    gap: 1.6rem 0;
+}
+.gallery__content-title{
+    color: $black;
+    @include text-preset-1;
+    @media screen and (max-width: 450px) {
+        @include text-preset-2;
+    }
+}
+.gallery__content-description{
+    color: $grey-500;
+    @include text-preset-3($medium);
+}
+.gallery__content-button-shop{
+    width: 100%;
+    @include flex(row, flex-start, center);
+    gap: 2rem clamp(2.4rem, 10vw, 3.2rem);
+    flex-wrap: wrap;
+    @media screen and (max-width: 450px) {
+        @include flex(row, space-between, center);   
+    }
+
+    & p{
+        color: $black;
+        @include text-preset-4;
+        text-transform: uppercase;
+        text-wrap-mode: nowrap;
+    }
+    & button{
+        border: none;
+        background-color: $white;
+        cursor: pointer;
+    }
+}

@@ -1,35 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Gallery from './components/Gallery'
+import './css/App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header />
+      <main className='main'>
+        <Gallery />
+        <div className='main__container'>
+          <picture className='imgDark'>
+            <source srcSet='image-about-dark.jpg' media='(max-width:450px)'/>
+            <source srcSet='image-about-dark.jpg' media='(min-width:1024px) and (orientation: landscape)'/>
+            <img src="image-about-dark-lg.png" alt="" />
+          </picture>
+
+          <div className='main__text-block'>
+            <h2 className='main__title'>ABOUT OUR FURNITURE</h2>
+            <p className='main__description'>Our multifunctional collection blends design and function to suit your individual taste. Make each room unique, or pick a cohesive theme that best express your interests and what inspires you. Find the furniture pieces you need, from traditional to contemporary styles or anything in between. Product specialists are available to help you create your dream space. </p>
+          </div>
+
+          <picture className='imgLight'>
+            <source srcSet='image-about-light.jpg' media='(max-width:450px)'/>
+            <source srcSet='image-about-light.jpg' media='(min-width:1024px) and (orientation: landscape)'/>
+            <img src="image-about-light-lg.png" alt="" />
+          </picture>
+        </div>
+      </main>
     </>
   )
 }
 
-export default App
+function Header(){
+  return(
+    <header className='header'>
+
+    </header>
+  )
+}
+

@@ -1,0 +1,106 @@
+@font-face {
+    font-family: LeagueSpartan;
+    src: url(../assets/font/LeagueSpartan-VariableFont_wght.ttf);
+}
+
+$white:    #FFFFFF;
+$black:    #000000;
+$grey-50:  #FAFAFA;
+$grey-100: #EFEFEF;
+$grey-200: #D8D8D8;
+$grey-500: #A0A0A0;
+$grey-800: #444444;
+$bold:       700;
+$semibold:   600;
+$medium:     500;
+$spacing-0:   0;
+$spacing-200: 1.6rem;
+$spacing-300: 2.4rem;
+$spacing-400: 3.2rem;
+$spacing-600: 4.8rem;
+$spacing-700: 5.6rem;
+$spacing-800: 6.4rem;
+
+$w-text-md-sm: 83.33%;
+
+@mixin text-preset-1{
+    font-size:      clamp(4rem, 8vw, 4.8rem);
+    @media screen and (min-width: 1024px) {
+        font-size:  clamp(3.8rem, 3.4vw, 7.8rem);
+    }
+    font-weight:    $semibold;
+    line-height:    90%;
+    letter-spacing: -.2rem;
+}
+@mixin text-preset-2{
+    font-size:      clamp(2rem, 10.5vw, 4rem);
+    font-weight:    $semibold;
+    line-height:    100%;
+    letter-spacing: -.2rem;
+}
+@mixin text-preset-3($weight){
+    font-size:      1.6rem;
+    font-weight:    $weight;
+    @if($weight == 500) {
+        line-height: 140%;
+        letter-spacing: -.05rem;
+    }
+    @if($weight == 600){
+        line-height:    100%;
+        letter-spacing: -.07rem;
+    }
+    @if($weight == 700) {
+        line-height:    140%;
+        letter-spacing: .7rem;
+    }
+}
+@mixin text-preset-4{
+    font-size:      1.5rem;
+    font-weight:    $medium;
+    line-height:    100%;
+    letter-spacing: 1.25rem;
+}
+@mixin flex($direction, $main-axis, $cross-axis){
+    display:         flex;
+    flex-direction:  $direction;
+    justify-content: $main-axis;
+    align-items:     $cross-axis;
+}
+
+
+@mixin width-content{
+    
+    width: clamp(20rem, 83vw, 64rem);
+    @media screen and (max-width:450px) {
+        width: clamp(20rem, 83vw, 60rem);
+    }
+    @media screen and (min-width:450px) and (max-width:1024px) {
+        width: clamp(20rem, 83vw, 64rem);
+    }
+    @media screen and (min-width:1024px) and (orientation: landscape) {
+        // width: 100%;
+        width: clamp(20rem, 32vw, 64rem);
+    }
+}
+
+@mixin arrow-style{
+    width: clamp(3rem, 15vw, 8rem);
+    height: clamp(3rem, 15vw, 8rem);
+    border: none;
+    background-color: $black;
+    transition: 300ms;
+    &:active{
+        background: $grey-800;
+    }
+    @media screen and (max-width:450px) {
+        & img{ height: 1.68rem; }
+    }
+    @media screen and (min-width:1024px) {
+        &:hover{
+            background: $grey-800;
+        }
+        &:active{
+            filter: brightness(50%);
+        }   
+    }
+}
