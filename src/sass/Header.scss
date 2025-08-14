@@ -1,0 +1,32 @@
+.header{
+    position: absolute;
+    top: clamp(4.8rem, 6vw, 6.4rem);
+    left: 6.4rem;
+    @include flex(row, flex-start, center);
+    gap: 0 5.6rem;
+    z-index: 20;
+    @media screen and (orientation: portrait) {
+        width: 100%;
+        @include flex(row, space-between, center);
+        gap: 0;
+        left: 0;
+    }
+
+}
+.logo{
+    position: relative;
+    @include offSet('logoIcon');
+    @media screen and (orientation: portrait) {
+        margin: 0 46%;
+        transform: translateX(-46%);
+    }
+}
+.sideMenuIcon{
+    display: none;
+    @include offSet('menuIcon');
+    @media screen and (orientation: portrait) {
+        display: block;
+    }
+}
+
+

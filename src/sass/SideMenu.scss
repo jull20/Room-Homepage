@@ -1,0 +1,77 @@
+.sideMenu{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 30;
+    animation: bg-black-open 500ms;
+    &.close{
+        animation: bg-black-close 500ms;
+    }
+}
+.sideMenu__menu-wrapper{
+    width: 100%;
+    height: 11rem;
+    background-color: $white;
+    @include flex(row, space-between, center);
+    @include offSet('navigation');
+    animation: menu-open 500ms;
+    &.close{
+        animation: menu-close 500ms;
+    }
+    @media screen and (max-width: 350px) {
+        @include flex(column, flex-start, flex-start);
+        gap: 6rem 0;
+        height: auto;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+}
+.closeIcon{
+    border: none;
+    background-color: $white;
+    & svg{
+        transition: 200ms;
+        opacity: 20%;
+    }   
+    &:active{
+        & svg{
+            opacity: 60%;
+        }
+    }
+}
+
+@keyframes bg-black-open {
+    from{
+        background-color: rgba(0, 0, 0, 0);
+    }
+    to{
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}
+@keyframes menu-open {
+    from{
+        transform: translateX(-100%);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+@keyframes bg-black-close {
+    from{
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    to{
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+@keyframes menu-close {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}

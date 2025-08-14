@@ -1,4 +1,5 @@
 import Gallery from './components/Gallery'
+import Header from './components/Header'
 import './css/App.css'
 
 export default function App() {
@@ -30,11 +31,5 @@ export default function App() {
   )
 }
 
-function Header(){
-  return(
-    <header className='header'>
 
-    </header>
-  )
-}
 

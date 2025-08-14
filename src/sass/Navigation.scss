@@ -1,0 +1,47 @@
+.navigation{
+    .header &{
+        display: none;
+        @media screen and (orientation: landscape) {
+            display: block;
+        }
+    }
+    .sideMenu &{
+        display: block;
+        align-self: center;
+    }
+}
+.navigation__list{
+    @include flex(row, center, center);
+    gap: 0 3.2rem;
+    list-style-type: none;
+    @media screen and (max-width: 350px) {
+        @include flex(column, flex-start, center);
+        gap: 3rem 0;
+    }
+}
+.navigation__item{
+    cursor: pointer;
+    .header &{
+        position: relative;
+        color: $white;
+        &:after{
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 0;
+            margin: 0 50%;
+            transform: translateX(-50%);
+            height: .2rem;
+            background-color: rgba(255, 255, 255, 0);
+            width: 1.6rem;
+            transition: 300ms;
+        }
+        &:hover:after{
+            background-color: white;
+        }
+    }
+    .sideMenu &{
+        color: $black;
+    }
+    @include text-preset-3($semibold);
+}

@@ -1,5 +1,8 @@
 @import 'design-system';
 @import 'Gallery';
+@import 'Header';
+@import 'SideMenu';
+@import 'Navigation';
 
 *{
     margin: 0;
@@ -20,7 +23,7 @@ html{
     width: 100%;
     height: 100%;
     @include flex(column, flex-start, center);
-    @media screen and (orientation: portrait) {
+    @media screen and (orientation: portrait){
         gap: 6.4rem 0;
     }
 }

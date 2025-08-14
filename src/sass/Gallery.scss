@@ -15,6 +15,7 @@
 .slider{
     width: 100%;
     overflow: hidden;
+    z-index: 10;
 }
 .slides{
     width: 300%;
@@ -42,7 +43,7 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    z-index: 100;
+    z-index: 20;
     @media screen and (min-width: 1300px) and (orientation: landscape) {
         left: 100%;
     }
@@ -92,19 +93,35 @@
     @include flex(row, flex-start, center);
     gap: 2rem clamp(2.4rem, 10vw, 3.2rem);
     flex-wrap: wrap;
+    cursor: pointer;
     @media screen and (max-width: 450px) {
         @include flex(row, space-between, center);   
     }
 
     & p{
+        transition: 300ms;
         color: $black;
         @include text-preset-4;
         text-transform: uppercase;
         text-wrap-mode: nowrap;
     }
     & button{
+        cursor: pointer;
         border: none;
         background-color: $white;
-        cursor: pointer;
+        & svg{
+            transition: 300ms;
+            fill: $black;
+        }
+    }
+    &:hover{
+        & p{
+            color: $grey-500;
+        }
+        & button{
+            & svg{
+                fill: $grey-500;
+            }
+        }
     }
 }

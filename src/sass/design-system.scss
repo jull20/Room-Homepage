@@ -89,6 +89,7 @@ $w-text-md-sm: 83.33%;
     border: none;
     background-color: $black;
     transition: 300ms;
+    cursor: pointer;
     &:active{
         background: $grey-800;
     }
@@ -102,5 +103,32 @@ $w-text-md-sm: 83.33%;
         &:active{
             filter: brightness(50%);
         }   
+    }
+}
+
+@mixin offSet($name){
+    @media screen and (max-width:450px) {
+        $value: 2.4rem;
+        @if($name == 'logoIcon'){
+            left: -$value;
+        }
+        @if($name == 'menuIcon'){
+            margin-left: $value;
+        }
+        @if($name == 'navigation'){
+            padding: 0 $value;
+        }
+    }
+    @media screen and (min-width:450px)  and (orientation: portrait) {
+        $value: 6.4rem;
+        @if($name == 'logoIcon'){
+            left: -$value;
+        }
+        @if($name == 'menuIcon'){
+            margin-left: $value;
+        }
+        @if($name == 'navigation'){
+            padding: 0 $value;
+        }
     }
 }
